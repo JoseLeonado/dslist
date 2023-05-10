@@ -1,12 +1,13 @@
 package com.jlcb.dslist.dto;
 
 import com.jlcb.dslist.model.Game;
+import com.jlcb.dslist.projection.GameMinProjection;
 
 public class GameMinDTO {
 
 	private Long id;
 	private String title;
-	private String year;
+	private Integer year;
 	private String imgUrl;
 	private String shortDescription;
 
@@ -21,6 +22,14 @@ public class GameMinDTO {
 		shortDescription = game.getShortDescription();
 	}
 
+	public GameMinDTO(GameMinProjection gameMinProjection) {
+		id = gameMinProjection.getId();
+		title = gameMinProjection.getTitle();
+		year = gameMinProjection.getYear();
+		imgUrl = gameMinProjection.getImgUrl();
+		shortDescription = gameMinProjection.getShortDescription();
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -29,7 +38,7 @@ public class GameMinDTO {
 		return title;
 	}
 
-	public String getYear() {
+	public Integer getYear() {
 		return year;
 	}
 
